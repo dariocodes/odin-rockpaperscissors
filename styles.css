@@ -17,6 +17,7 @@ header {
 
 body {
   background-color: #1b263b;
+  position: relative;
 }
 
 main {
@@ -33,6 +34,29 @@ main p {
   line-height: 30px;
 }
 
+.scoreSection button {
+  width: 6em;
+  height: 2em;
+  border-radius: 5px;
+  border: none;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 30px;
+  background-color: #0d1b2a;
+  color: #e0e1dd;
+  transition: 0.15s;
+}
+
+.scoreSection button:hover {
+  background: none;
+  border: 3px solid #e0e1dd;
+}
+
+.scoreSection button:active {
+  background-color: #e0e1dd;
+  color: #0d1b2a;
+}
+
 .scores {
   margin: 100px auto;
   display: grid;
@@ -41,7 +65,7 @@ main p {
 }
 
 .score {
-  font-size: 40px;
+  font-size: 60px;
   font-family: "Press Start 2P", cursive, sans-serif;
 }
 
@@ -76,4 +100,68 @@ main p {
 .container div:hover {
   background-color: #415a77;
   cursor: pointer;
+}
+
+.container div:active {
+  height: 1.8em;
+  background-color: #e0e1dd;
+}
+
+#popup {
+  background-color: #0d1b2ad2;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  color: white;
+  transition: 0.15s;
+}
+
+#popup div {
+  width: 20em;
+  height: 12em;
+  border-radius: 20px;
+  background-color: #09121c;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#popup div p {
+  color: #b3b3b3;
+  font-size: 0.8em;
+  margin-top: 10px;
+  font-weight: 400;
+}
+
+#popup div button {
+  height: 2.5em;
+  width: 6em;
+  margin-top: 20px;
+  background-color: #0d1b2a;
+  color: #e0e1dd;
+  font-weight: bold;
+  transition: 0.15s;
+  border: none;
+  border-radius: 5px;
+  ont-size: 1em;
+}
+
+#popup div button:hover {
+  background-color: #e0e1dd;
+  color: #0d1b2a;
+}
+
+#popup div button:active {
+  background-color: #0d1b2a;
+  color: #e0e1dd;
 }

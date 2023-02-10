@@ -17,26 +17,27 @@
     <header>Rock Paper Scissors</header>
     <main>
       <h1>Choose your weapon</h1>
-      <p>
+      <p id="resultEl">
         Beat the computer🤖 <br />
         first one to 5 wins
       </p>
       <div class="scores">
-        <div id="playerscore">
-          <p class="score">?</p>
+        <div>
+          <p id="playerscoreEl" class="score">?</p>
           <p class="playerName">Player score:</p>
         </div>
-        <div id="computerscore">
-          <p class="score">?</p>
+        <div>
+          <p id="computerscoreEl" class="score">?</p>
           <p class="playerName">Computer score:</p>
         </div>
       </div>
       <div class="container">
-        <div>👊</div>
-        <div>🫱</div>
-        <div>✌️</div>
+        <div id="rockButton">👊</div>
+        <div id="paperButton">🫱</div>
+        <div id="scissorsButton">✌️</div>
       </div>
     </main>
+    <div id="popupContainer"></div>
     <script src="index.js"></script>
   </body>
 </html>

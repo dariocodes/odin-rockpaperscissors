@@ -2,6 +2,13 @@ let computerSelection;
 let playerSelection;
 let playerScore = 0;
 let computerScore = 0;
+const rockButton = document.getElementById("rockButton");
+const paperButton = document.getElementById("paperButton");
+const scissorsButton = document.getElementById("scissorsButton");
+let resultEl = document.getElementById("resultEl");
+let playerscoreEl = document.getElementById("playerscoreEl");
+let computerscoreEl = document.getElementById("computerscoreEl");
+const popupContainer = document.getElementById("popupContainer");
 
 // calculate a random number between 1-3 and return rock, paper or scissors
 function getComputerChoice() {
@@ -19,16 +26,10 @@ function getComputerChoice() {
   }
 }
 
-//function to get the player input
-function getPlayerChoice() {
-  //prompt user for input
-  playerSelection = prompt("Please enter your selection:");
-  //convert input into string
-  playerSelection = playerSelection.toString();
-  //convert player input into lowercase
-  playerSelection = playerSelection.toLowerCase();
-  return playerSelection;
-}
+//get user input
+rockButton.addEventListener("click", () => game("rock"));
+paperButton.addEventListener("click", () => game("paper"));
+scissorsButton.addEventListener("click", () => game("scissors"));
 
 // function to play a round of the game
 function playRound(playerSelection) {
@@ -36,26 +37,25 @@ function playRound(playerSelection) {
   getComputerChoice();
   // calculate winner
   if (playerSelection === computerSelection) {
-    console.log("TIE");
+    resultEl.innerHTML = `You picked ${playerSelection}, the computer picked ${computerSelection} <br /> It's a tie!`;
   } else if (
     (playerSelection == "rock" && computerSelection == "paper") ||
     (playerSelection == "paper" && computerSelection == "scissors") ||
     (playerSelection == "scissors" && computerSelection == "rock")
   ) {
-    console.log("computer won");
+    resultEl.innerHTML = `You picked ${playerSelection}, the computer picked ${computerSelection} <br /> The computer wins this round!🤖`;
     computerScore++;
   } else {
-    console.log("player won");
+    resultEl.innerHTML = `You picked ${playerSelection}, the computer picked ${computerSelection} <br /> You win this round!🙋‍♂️`;
     playerScore++;
   }
 }
 
 //run the game 5 times
-function game() {
-  while (playerScore < 5 && computerScore < 5) {
-    getPlayerChoice();
-    playRound(playerSelection);
-  }
+function game(playerSelection) {
+  playRound(playerSelection);
+  playerscoreEl.innerText = playerScore;
+  computerscoreEl.innerText = computerScore;
   if (playerScore == 5 || computerScore == 5) {
     calculateWinner();
   }
@@ -63,7 +63,41 @@ function game() {
 
 //function to calculate the winner and reset scores
 function calculateWinner() {
-  console.log("done");
+  if (playerScore == 5) {
+    resultEl.innerHTML = "You won!🙋‍♂️";
+    popupContainer.innerHTML = `<div id="popup">
+    <div>
+      <h2>YOU WON! 🎉</h2>
+      <p>
+        Want to play another game? <br />
+        click the button and choose your weapon
+      </p>
+      <button id="continueBtn">Continue</button>
+    </div>
+  </div>`;
+    const continueButton = document.getElementById("continueBtn");
+    continueButton.addEventListener(
+      "click",
+      () => (popupContainer.innerHTML = "")
+    );
+  } else if (computerScore == 5) {
+    resultEl.innerHTML = "The Computer won!🤖";
+    popupContainer.innerHTML = `<div id="popup">
+    <div>
+      <h2>YOU LOST! 😭</h2>
+      <p>
+        Want to play another game? <br />
+        click the button and choose your weapon
+      </p>
+      <button id="continueBtn">Continue</button>
+    </div>
+  </div>`;
+    const continueButton = document.getElementById("continueBtn");
+    continueButton.addEventListener(
+      "click",
+      () => (popupContainer.innerHTML = "")
+    );
+  }
   playerScore = 0;
   computerScore = 0;
 }
