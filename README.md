@@ -2,4 +2,5 @@
 
 A simple rock paper scissors game created with HTML, CSS and vanilla Javascript🚀
 
-Resposive on both mobile and desktop without media queries ✌️
+[Live demo:](https://dariocodes.github.io/rock-paper-scissors/)
+
