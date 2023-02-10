@@ -1,7 +1,7 @@
 let computerSelection;
 let playerSelection;
-let playerScore;
-let computerScore;
+let playerScore = 0;
+let computerScore = 0;
 
 // calculate a random number between 1-3 and return rock, paper or scissors
 function getComputerChoice() {
@@ -43,19 +43,27 @@ function playRound(playerSelection) {
     (playerSelection == "scissors" && computerSelection == "rock")
   ) {
     console.log("computer won");
+    computerScore++;
   } else {
     console.log("player won");
+    playerScore++;
   }
 }
 
 //run the game 5 times
 function game() {
-  for (i = 0; i < 5; i++) {
-    if (i < 5) {
-      getPlayerChoice();
-      playRound(playerSelection);
-    } else {
-      console.log("done");
-    }
+  while (playerScore < 5 && computerScore < 5) {
+    getPlayerChoice();
+    playRound(playerSelection);
   }
+  if (playerScore == 5 || computerScore == 5) {
+    calculateWinner();
+  }
+}
+
+//function to calculate the winner and reset scores
+function calculateWinner() {
+  console.log("done");
+  playerScore = 0;
+  computerScore = 0;
 }
