@@ -1,0 +1,79 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+header {
+  font-family: "Press Start 2P", cursive, sans-serif;
+  text-align: center;
+  background-color: #0d1b2a;
+  color: #e0e1dd;
+  font-size: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+body {
+  background-color: #1b263b;
+}
+
+main {
+  margin-top: 80px;
+  text-align: center;
+  color: #e0e1dd;
+  padding: 0 20px;
+}
+
+main p {
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.scores {
+  margin: 100px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 450px;
+}
+
+.score {
+  font-size: 40px;
+  font-family: "Press Start 2P", cursive, sans-serif;
+}
+
+.playerName {
+  font-weight: bold;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 50px auto;
+  max-width: 450px;
+}
+
+.container div {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
+  background-color: #0d1b2a;
+  column-gap: 20px;
+  height: 2em;
+  width: 2em;
+  border-radius: 15px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.171);
+  transition: 0.15s;
+}
+
+.container div:hover {
+  background-color: #415a77;
+  cursor: pointer;
+}
